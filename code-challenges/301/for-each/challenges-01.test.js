@@ -51,7 +51,7 @@ Return the modified array.
 
 const removeOne = (num, arr) => {
   if (num % 3 === 2) {
-    arr.pop(num);
+    arr.pop();
   }
 }
 
@@ -84,7 +84,12 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (arr) => {
-  // Solution code here...
+  arr.forEach((value, idx, arr) => {
+    if (value % 3 === 2) {
+      arr.pop();
+    }
+  });
+  return arr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -105,7 +110,7 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  
 }
 
 /* ------------------------------------------------------------------------------------------------
