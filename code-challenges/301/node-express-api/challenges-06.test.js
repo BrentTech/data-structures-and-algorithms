@@ -96,12 +96,16 @@ hasChildrenValues(characters, 'Eddard') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  return arr.forEach( (obj) => {
-    if (obj.name === character) {
-      return obj.children;
+  for (let entry in Object.values(arr)) {
+    if (entry.name === character) {
+      if (entry.children.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
     }
-  });
-}
+  }
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -112,8 +116,17 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
-}
+  for (let entry in Object.entries(arr)) {
+    if (entry.name === character) {
+      if (entry.children.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+};
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -166,19 +179,19 @@ Run your tests from the console: jest challenges-06.test.js
 
 ------------------------------------------------------------------------------------------------ */
 
-xdescribe('Testing challenge 1', () => {
+describe('Testing challenge 1', () => {
   test('It should return the keys from an object', () => {
     expect(getCourseKeys(courseInfo)).toStrictEqual([ 'name', 'duration', 'topics', 'finalExam' ]);
   });
 });
 
-xdescribe('Testing challenge 2', () => {
+describe('Testing challenge 2', () => {
   test('something specific', () => {
     expect(totalCharacters(characters)).toStrictEqual(7);
   });
 });
 
-xdescribe('Testing challenge 3', () => {
+describe('Testing challenge 3', () => {
   test('something specific', () => {
     expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
     expect(getHouses(characters).length).toStrictEqual(7);
@@ -195,7 +208,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
   });
