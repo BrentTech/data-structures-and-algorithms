@@ -109,7 +109,6 @@ const hasChildrenValues = (arr, character) => {
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
-
 Write a function named hasChildrenEntries that is similar to your hasChildrenValues function from challenge 4, but uses the data's entries instead of its keys.
 
 The input and output of this function are the same as the input and output from challenge 4.
