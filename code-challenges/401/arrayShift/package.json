@@ -1,0 +1,17 @@
+{
+  "name": "arrayshift",
+  "version": "1.0.0",
+  "description": "",
+  "main": "array-shift.js",
+  "scripts": {
+    "start": "node array-shift.js",
+    "lint": "eslint **/*.js",
+    "test": "jest --verbose --coverage"
+  },
+  "author": "Brent Woodward",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^5.10.0",
+    "jest": "^23.6.0"
+  }
+}
