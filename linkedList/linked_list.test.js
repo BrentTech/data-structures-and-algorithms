@@ -84,3 +84,29 @@ describe('Linked List Insert After', () => {
     expect(ll.head.next.next.next.value).toEqual(4);
   });
 });
+
+describe('Linked List Kth From End', () => {
+  it('should not run if empty list', () => {
+    let ll = new list.LinkedList();
+    expect(() => ll.kthFromEnd(1)).toThrow('Exception');
+  });
+  it('should throw if input is larger than list', () => {
+    let ll = new list.LinkedList();
+    ll.append(1);
+    ll.append(2);
+    ll.append(3);
+    ll.append(4);
+    expect(() => ll.kthFromEnd(18)).toThrow('Exception');
+  });
+  it('should return the value of the input number of nodes from the end of the lsit', () => {
+    let ll = new list.LinkedList();
+    ll.append(1);
+    ll.append(2);
+    ll.append(3);
+    ll.append(4);
+    ll.append(5);
+    expect(ll.kthFromEnd(1)).toEqual(4);
+    expect(ll.kthFromEnd(4)).toEqual(1);
+    expect(ll.kthFromEnd(0)).toEqual(5);
+  });
+});

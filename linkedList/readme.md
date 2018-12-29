@@ -23,8 +23,19 @@ Create 3 new methods for our linked list. 1) append a node to the end, 2) insert
 
 ### Approach & Efficiency
 
-## Solution
+### Solution
 ![Whiteboard Image of Linked List Insertions](./assets/ll_insertions01.jpg "Solution to Code Challenge - Linked List Insertion Methods - Image 1")
 ![Whiteboard Image of Linked List Insertions](./assets/ll_insertions02.jpg "Solution to Code Challenge - Linked List Insertion Methods - Image 2")
 
 <!-- write tests for argument.length validation and bad argument -->
+
+## Challenge 3
+
+### Challenge
+Create a method for linked list that takes in a number and returns the value of the node that is that input from the end.
+
+### Approach & Efficiency
+I approached this challenge thinking that I would first need to find a length for the list, and then I would be able to traverse the list until I reach the designated node. This requires traversal of the node 1 time completely, and a second time partially (possibly completely) in order to find the designated node.
+
+### Solution
+![Whiteboard Image of Linked List Kth from end](./assets/ll_kth_from_end.jpg "Solution to Code Challenge - Linked List Kth Node From End")

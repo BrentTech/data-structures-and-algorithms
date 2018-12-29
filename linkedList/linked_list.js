@@ -64,6 +64,31 @@ class LinkedList {
     node.next = current;
     previous.next = node;
   }
+
+  kthFromEnd(input) {
+    if (!this.head) {
+      throw 'Exception';
+    }
+
+    let current = this.head;
+    let count = 1;
+    while(current.next) {
+      current = current.next;
+      count++;
+    }
+    if ( input > count ) {
+      throw 'Exception';
+    }
+
+    let calcNum = count - input;
+    current = this.head;
+    count = 1;
+    while (count !== calcNum) {
+      current = current.next;
+      count++;
+    }
+    return current.value;
+  }
 }
 
 // let list = new LinkedList();
