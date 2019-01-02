@@ -89,15 +89,60 @@ class LinkedList {
     }
     return current.value;
   }
+
+  print() {
+    if (!this.head) {
+      throw 'Exception';
+    }
+
+    let current = this.head;
+    while(current.next) {
+      console.log(current);
+      current = current.next;
+    }
+    console.log(current);
+  }
+
 }
 
-// let list = new LinkedList();
-// list.append(3);
-// list.insert(1);
-// list.append(5);
-// list.insertBefore(3, 2);
-// list.insertAfter(3, 4);
+function mergeLists(listOne, listTwo) {
+  if (!listOne.head || !listTwo.head) {
+    throw 'Exception';
+  }
+  
+  let current1 = listOne.head;
+  let current2 = listTwo.head;
+  let next1;
+  let next2;
+
+  while(current1 && current2) {
+    next1 = current1.next;
+    next2 = current2.next;
+
+    current2.next = next1;
+    current1.next = current2;
+
+    current1 = next1;
+    current2 = next2;
+  }
+  let newHead = listOne.head;
+  return newHead;
+}
+
+// let listOne = new LinkedList();
+
+// listOne.append(1);
+// listOne.append(1);
+// listOne.append(1);
+
+// let listTwo = new LinkedList();
+
+// listTwo.append(2);
+// listTwo.append(2);
+// listTwo.append(2);
+
+// mergeLists(listOne, listTwo);
 
 module.exports = { LinkedList };
 
-// console.log(util.inspect(list,{depth:10}));
+// console.log(util.inspect(listOne,{depth:10}));
