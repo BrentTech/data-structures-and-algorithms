@@ -39,3 +39,15 @@ I approached this challenge thinking that I would first need to find a length fo
 
 ### Solution
 ![Whiteboard Image of Linked List Kth from end](./assets/ll_kth_from_end.jpg "Solution to Code Challenge - Linked List Kth Node From End")
+
+
+## Challenge 4
+
+### Challenge
+Create a method for linked list that takes in two lists and merges them while alternating nodes.
+
+### Approach & Efficiency
+The first approach we took to this challenge involved nested while loops, however, we quickly realized that it wasn't needed. We established a variable for the 'current' of each list, and the 'next' of each list. As we iterated through both lists we reassigned the next property of the second lists nodes to the appropriate places in the first list. I believe time is O(n) and space is O(1), however, space may be O(n);
+
+### Solution
+![Whiteboard Image of Linked List Merge](./assets/ll_merge.jpg "Solution to Code Challenge - Linked List Merge")
