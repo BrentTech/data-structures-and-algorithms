@@ -129,11 +129,20 @@ function mergeLists(listOne, listTwo) {
   return newHead;
 }
 
-// let listOne = new LinkedList();
+function reverse(list) {
+  let current = list.head;
+  while(current.next) {
+    let next = current.next;
+    current.next = current;
+    current = next;
+  }
+}
 
-// listOne.append(1);
-// listOne.append(1);
-// listOne.append(1);
+let listOne = new LinkedList();
+
+listOne.append(1);
+listOne.append(1);
+listOne.append(1);
 
 // let listTwo = new LinkedList();
 
@@ -142,7 +151,29 @@ function mergeLists(listOne, listTwo) {
 // listTwo.append(2);
 
 // mergeLists(listOne, listTwo);
+reverse(listOne);
+
 
 module.exports = { LinkedList };
 
-// console.log(util.inspect(listOne,{depth:10}));
+console.log(util.inspect(listOne,{depth:10}));
+
+
+
+
+var reverseLinkedList = function(linkedlist) {
+  var node = linkedlist;
+  var previous = null;
+
+  while(node) {
+    // save next or you lose it!!!
+    var save = node.next;
+    // reverse pointer
+    node.next = previous;
+    // increment previous to current node
+    previous = node;
+    // increment node to next node or null at end of list
+    node = save;
+  }
+  return previous;   // Cha
+};
