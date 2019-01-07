@@ -16,6 +16,9 @@ class Stack {
   }
 
   push(value) {
+    if(!value) {
+      throw 'No Value Given';
+    }
     let node = new Node(value);
     if (!this.top) {
       this.top = node;
