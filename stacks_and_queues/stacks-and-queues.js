@@ -37,6 +37,7 @@ class Stack {
       this.top = current.next;
     }
     current.next = null;
+    return current;
   }
 
   peek() {
