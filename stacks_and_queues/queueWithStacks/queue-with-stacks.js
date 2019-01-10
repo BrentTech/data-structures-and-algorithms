@@ -2,11 +2,10 @@
 
 const Stack = require('../stacks-and-queues.js');
 
-let stack = new Stack.Stack();
-
 class PseudoQueue{
-  constructor(stack) {
-    this.stack = stack;
+  constructor() {
+    this.stack = new Stack.Stack();
+    this.otherStack = new Stack.Stack();
   }
 
   enqueue(value) {
@@ -14,13 +13,17 @@ class PseudoQueue{
   }
 
   dequeue() {
-    let otherStack = new Stack.Stack();
-    while(!this.stack.pop()) {
-      otherStack.push(this.stack.pop());
+    let result;
+    if(!this.stack.top) {
+      throw 'Empty Stack';
+    } else {
+      while(!this.stack.top) {
+        this.otherStack.push(this.stack.pop());
+      }
+      result = this.otherStack.pop();
     }
-    let result = otherStack.pop();
-    while(!otherStack.pop()){
-      this.stack.push(otherStack.pop());
+    while(!this.otherStack.top){
+      this.stack.push(this.otherStack.pop());
     }
     return result;
   }
