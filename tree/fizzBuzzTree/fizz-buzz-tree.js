@@ -18,12 +18,11 @@ function evaluator(val) {
 }
 
 function FizzBuzzTree(tree) {
-  let node = tree.root;
   let _walk = (node) => {
     evaluator(node.value);
     if(node.left) { _walk(node.left); }
-    if(node.red) { _walk(node.red); }
+    if(node.right) { _walk(node.right); }
   };
-  _walk(node.root);
+  _walk(tree.root);
   return tree;
 }
