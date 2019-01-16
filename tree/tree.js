@@ -46,10 +46,9 @@ class BinaryTree {
     return nodes;
   }
 
-  breadthFirst(tree) {
-    let node = tree.root;
+  breadthFirst() {
     let queue = new Queue();
-    queue.enqueue(node);
+    queue.enqueue(this.root);
     while(queue.front) {
       console.log(queue.front.value);
       if(queue.front.left) {
@@ -62,6 +61,16 @@ class BinaryTree {
     }
   }
 
+  findMaxValue() { //less memory as breadth first due to O(w)
+    let max = 0;
+    const _walk = (node) => {
+      if(node.value > max) { max = node.value; }
+      if(node.left) { _walk(node.left); }
+      if(node.right) { _walk(node.right); }
+    };
+    _walk(this.root);
+    return max;
+  }
 }
 
 // left is SMALLER, right is BIGGER
