@@ -1,17 +1,9 @@
 'use strict';
 
-
 let BinaryTree = require('./tree.js').BinaryTree;
 let Node = require('./tree.js').Node;
 
 describe('tree includes method', () => {
-
-  // tree:
-  //       (1)
-  //       / \
-  //     (2) (3)
-  //    /  \    \
-  // (4)   (5)  (6)
 
   let a = new Node(1);
   let b = new Node(2);
@@ -77,4 +69,3 @@ describe('tree includes method', () => {
   });
 
 });
-

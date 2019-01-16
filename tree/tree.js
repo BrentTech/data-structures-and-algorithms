@@ -8,7 +8,7 @@ class Node {
   }
 }
 
-class Tree {
+class BinaryTree {
   constructor() {
     this.root = null;
   }
@@ -45,18 +45,37 @@ class Tree {
     _walk(this.root);
     return nodes;
   }
+
+  breadthFirst(tree) {
+    let node = tree.root;
+    let queue = new Queue();
+    queue.enqueue(node);
+    while(queue.front) {
+      console.log(queue.front.value);
+      if(queue.front.left) {
+        queue.enqueue(queue.front.left);
+      }
+      if(queue.front.right) {
+        queue.enqueue(queue.front.right);
+      }
+      queue.dequeue();
+    }
+  }
+
 }
 
-class BinaryTree {
+class BinarySearchTree {
   constructor() {
     this.root = null;
   }
 
-  add() {
+  add(value) {
+    
   }
 
-  contains() {
+  contains(value) {
+
   }
 }
 
-module.exports = {Node, Tree, BinaryTree};
+module.exports = {Node, BinaryTree, BinarySearchTree};
