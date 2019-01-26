@@ -81,41 +81,49 @@ class BinarySearchTree {
   }
 
   add(value) {
-    var newNode = new Node(value);  
-    if(this.root === null) {
-      this.root = newNode; 
-    } else { 
-      this.insertNode(this.root, newNode);
+    let root = this.root;
+    if(!root){
+      this.root = new Node(value);
+      return this.root;
     }
-  }
-
-  insertNode(node, newNode) {  
-    if(newNode.data < node.data) { 
-      if(node.left === null) {
-        node.left = newNode; 
+    let currentNode = root;
+    let newNode = new Node(value);
+    while(currentNode){
+      if(value < currentNode.value){
+        if(!currentNode.left){
+          currentNode.left = newNode;
+          return newNode;
+        } else {
+          currentNode = currentNode.left;
+        }
       } else {
-        this.insertNode(node.left, newNode);
-      }  
-    } else { 
-      if(node.right === null) {
-        node.right = newNode; 
-      } else { 
-        this.insertNode(node.right,newNode); 
-      } 
-    } 
+        if(!currentNode.right){
+          currentNode.right = newNode;
+          break;
+        } else {
+          currentNode = currentNode.right;
+        }
+      }
+    }    
   }
 
   contains(value) {
-    let node = this.root; 
-    if(node === null) {
-      return null;
-    } else if(value < node.value) { 
-      return this.search(node.left, value);
-    } else if(value > node.value) {
-      return this.search(node.right, value); 
-    } else {
-      return node; 
-    }
+    let boolean = true;
+    let _walk = (node) => {
+      if(node === null) {
+        boolean = false;
+        return;
+      } else if(value < node.value) {
+        _walk(node.left);
+      } else if(value > node.value) {
+        _walk(node.right);
+      } else if(value === node.value) {
+        boolean = true;
+        return;
+      };
+      _walk(this.root);
+      return boolean;
+
   }
 }
 
